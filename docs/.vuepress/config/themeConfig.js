@@ -47,6 +47,29 @@ module.exports = {
     // ],
     contentBgStyle: 1, // 文章内容块的背景风格，默认无. 1 => 方格 | 2 => 横线 | 3 => 竖线 | 4 => 左斜线 | 5 => 右斜线 | 6 => 点状
 
+    // 私密文章配置
+    privatePage: {
+        openPrivate: true, // 开启私密文章验证，默认开启（true），如果不开启（false），则下面配置都失效
+        username: "max-kevin", // 管理员用户名
+        password: "123456", // 管理员密码
+        expire: "5h", // 登录过期时间：1d 代表 1 天，1h 代表 1 小时，仅支持这两个单位，不加单位代表秒。过期后访问私密文章重新输入用户名和密码。默认一天
+        loginPath: "/vdoing/login/", // 引用登录组件的 md 文章的 permalink（必须），无默认值
+        loginKey: "vdoing_manager", // 存储用户名信息的 key，默认是 vdoing_manager。系统通过该 key 验证是否登录、是否过期
+        loginSession: false, // 开启是否在网页关闭或刷新后，清除登录状态，这样再次访问网页，需要重新登录，默认为 false（不开启）
+        firstLogin: 0, // 第一次进入网站需要验证。用于封锁整个网站，默认为 0（不开启），1 和 2 都代表开启，区别：1 代表虽然进入网站成功，但是网站内的私密文章仍需要单独验证，2 代表进入网站成功，网站内的私密文章不需要单独验证，也就是网站内的私密文章和普通文章一样可以访问
+        firstLoginKey: "vdoing_first_login", // 存储用户名信息的 key，firstLogin 开启后该配置生效，默认为 vdoing_first_login，系统通过该 key 验证是否登录、是否过期
+        // 私密文章多组用户名密码
+        // loginInfo: {
+        //   "/private/test1/": [
+        //     { username: "vdoing", password: "123456" },
+        //   ],
+        //   "vdoing_first_login" :[  // 对应 firstLoginKey 的值
+        //     { username: "vdoing", password: "123456" },
+        //   ]
+        // }
+    },
+
+
     // updateBar: { // 最近更新栏
     //   showToArticle: true, // 显示到文章页底部，默认true
     //   moreArticle: '/archives' // “更多文章”跳转的页面，默认'/archives'
@@ -89,6 +112,9 @@ module.exports = {
         desc: [
             "有形即有度，有度必满盈。故君子之思不器，君子之行不器，君子之量不器 —— 《论语·为政》",
             "无善无恶心之体，有善有恶意之动，知善知恶是良知，为善去恶是格物。 -- 王阳明",
+            "积跬步以至千里，致敬每个爱学习的你 —— 来自 Evan Xu",
+            "这一生波澜壮阔或是不惊都没问题 —— 来自 Weibw",
+            "故事由我书写，旅程由你见证，传奇由她聆听 —— 来自 Young Kbt",
             "积跬步以至千里，致敬每个爱学习的你 —— 来自 Evan Xu",
             "这一生波澜壮阔或是不惊都没问题 —— 来自 Weibw",
         ], // 多条描述，如果填写则覆盖 index.md 的 tagline，不填写则默认读取 index.md 的 tagline，descFadeIn 为 true 生效

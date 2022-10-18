@@ -1,3 +1,4 @@
+const head = require("./config/head.js")
 const plugins = require("./config/plugins.js")
 const themeConfig = require("./config/themeConfig.js")
 
@@ -8,6 +9,7 @@ module.exports = {
     theme: 'vdoing',
     // 仓库地址
     base: '/blogs/',
+    head,
     markdown: {
         lineNumbers: true, // 显示代码块的行号
         extractHeaders: ["h2", "h3", "h4"], // 支持 h2、h3、h4 标题
